@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Hello World!
+title: on Exploratory Data Analysis and Visualization
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+Connect [LinkedIn](http://linkedin.com/in/mayankmisra) [Twitter] (http://twitter.com/mayankmisra)
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+Who am I?  I am [Batman](http://mayankmisra.com/read-me/)
 
 ## Update Author Attributes
 
