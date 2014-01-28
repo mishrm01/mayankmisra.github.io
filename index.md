@@ -13,9 +13,9 @@ tagline:
 
 I am [Batman](http://mayankmisra.com/read-me/)
 
-	Connect:
-		[LinkedIn](http://linkedin.com/in/mayankmisra) 
-		[Twitter] (http://twitter.com/mayankmisra)
+Connect:
+[LinkedIn](http://linkedin.com/in/mayankmisra) 
+[Twitter] (http://twitter.com/mayankmisra)
 
 ## Working on
 
