@@ -18,9 +18,9 @@ tagline:
  Pursuing data science chops at [Columbia University] (http://idse.columbia.edu/masters)
 
 ## Speaking Engagements ##
-- Informatica World LV 2012, Accelerating Cloud Adoption in the Enterprise (~400 people; http://bit.ly/1aMasTz ),
-- SAP inside Track NYC 2012 and 2013, Mobile BI Strategy Considerations (~50 people in person, more than 200 on-line; Video: http://bit.ly/14WxdyB)
+- Informatica World LV 2012, [Accelerating Cloud Adoption in the Enterprise]  (http://bit.ly/1aMasTz ) ~400 people in attendance
+- SAP inside Track NYC 2012 and 2013, [Mobile BI Strategy Considerations](http://bit.ly/14WxdyB) ~50 people in person, more than 200 on-line
 
 ## White Papers / Articles ##
-- Mobile BI Strategy Considerations – SAP Community Network (http://bit.ly/1bFS8cW), 
-- Slideshare presentation (http://www.slideshare.net/mayankmisra)
+- Mobile BI Strategy Considerations – [SAP Community Network] (http://bit.ly/1bFS8cW) 
+- [Slideshare presentation] (http://www.slideshare.net/mayankmisra)
