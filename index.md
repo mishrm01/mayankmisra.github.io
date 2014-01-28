@@ -4,7 +4,7 @@ title: who am i?
 tagline: 
 ---
 {% include JB/setup %}
- moi [batman](http://mayankmisra.com/read-me/)
+ moi [batman](http://mayankmisra.com/read-me/):)
  
  At present I am working with [Pfizer] (http://www.pfizer.com/research/science_and_technology/product_pipeline) as an IT lead with specific oversight over BI & Advanced Analytics for Pfizer's US BioPharma business.  This role has inputs into the organizations overall BI and Analytics strategy, governance, and architecture activities.  It provides strategic direction and operational oversight for the delivery of business intelligence, data visualization and advanced analytics solutions to Primary Care, Specialty Care, Established Products and Oncology US BioPharma Sales and Marketing business functions. 
 
