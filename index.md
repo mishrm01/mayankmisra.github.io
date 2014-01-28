@@ -14,15 +14,15 @@ tagline:
 I am [Batman](http://mayankmisra.com/read-me/)
 
 Connect:
-[LinkedIn](http://linkedin.com/in/mayankmisra) 
-[Twitter] (http://twitter.com/mayankmisra)
+1. [LinkedIn](http://linkedin.com/in/mayankmisra) 
+1. [Twitter] (http://twitter.com/mayankmisra)
 
 ## Working on
 
 Getting this site up and running
- Publishing thoughts on interesting graphs I come across
- Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
- Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
+- Publishing thoughts on interesting graphs I come across
+- Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
+- Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
 
 ## Recent Posts
 
