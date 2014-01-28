@@ -20,9 +20,9 @@ Connect:
 ## Working on
 
 Getting this site up and running
-1 Publishing thoughts on interesting graphs I come across
-1 Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
-1 Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
+ Publishing thoughts on interesting graphs I come across
+ Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
+ Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
 
 ## Recent Posts
 
