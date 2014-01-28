@@ -4,7 +4,8 @@ title: who am i?
 tagline: 
 ---
 {% include JB/setup %}
-I am [Batman](http://mayankmisra.com/read-me/)
+ moi [batman](http://mayankmisra.com/read-me/)
+ 
  At present I am working with [Pfizer] (http://www.pfizer.com/research/science_and_technology/product_pipeline) as an IT lead with specific oversight over BI & Advanced Analytics for Pfizer's US BioPharma business.  This role has inputs into the organizations overall BI and Analytics strategy, governance, and architecture activities.  It provides strategic direction and operational oversight for the delivery of business intelligence, data visualization and advanced analytics solutions to Primary Care, Specialty Care, Established Products and Oncology US BioPharma Sales and Marketing business functions. 
 
  In the past I have led the Architecture and Engineering team within Global Data Management (CoE / Shared Service with a worldwide cross business unit remit).  This team has  oversight over global business intelligence architecture and technology management.  This role has specific inputs into the overall data governance, architecture, Mobility, Cloud, SAAS (SFDC/Concur) touch points.  On a broad level the mandate of this position was to provide technology strategy, enabling standardized, pre-architected patterns of use and pre-engineered hosting environments for data warehousing and business intelligence initiatives. The remit includes the overall control and stewardship of the business intelligence technology assets and ensuring that all governance, legal and regulatory requirements are complied with.
@@ -27,17 +28,17 @@ I am [Batman](http://mayankmisra.com/read-me/)
 - Mobile BI Strategy Considerations – [SAP Community Network] (http://bit.ly/1bFS8cW) 
 - [Slideshare presentation] (http://www.slideshare.net/mayankmisra)
 
-Connect:
+## Connect ##
 1. [LinkedIn](http://linkedin.com/in/mayankmisra) 
 1. [Twitter] (http://twitter.com/mayankmisra)
 
-# Working on #
+## Working on ##
 Getting this site up and running
 - Publishing thoughts on interesting graphs I come across
 - Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
 - Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
 
-# Recent Posts #
+## Recent Posts ##
 
 <ul class="posts">
   {% for post in site.posts %}
