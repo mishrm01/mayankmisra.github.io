@@ -1,36 +1,30 @@
 ---
 layout: page
-title: on Exploratory Data Analysis and Visualization
-tagline: Supporting tagline
+title: on exploratory data analysis & visualization
+tagline: 
 ---
 {% include JB/setup %}
 
-Connect [LinkedIn](http://linkedin.com/in/mayankmisra) [Twitter] (http://twitter.com/mayankmisra)
 
-Who am I?  I am [Batman](http://mayankmisra.com/read-me/)
 
-## Update Author Attributes
 
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
 
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
+## Who am I?
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+I am [Batman](http://mayankmisra.com/read-me/)
 
-    $ rm -rf _posts/core-samples
+	Connect:
+		[LinkedIn](http://linkedin.com/in/mayankmisra) 
+		[Twitter] (http://twitter.com/mayankmisra)
 
-Here's a sample "posts list".
+## Working on
+
+Getting this site up and running
+Publishing thoughts on interesting graphs I come across
+Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
+Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
+
+## Recent Posts
 
 <ul class="posts">
   {% for post in site.posts %}
@@ -38,9 +32,6 @@ Here's a sample "posts list".
   {% endfor %}
 </ul>
 
-## To-Do
 
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
 
 
