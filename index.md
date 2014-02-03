@@ -7,13 +7,13 @@ tagline:
  moi [Mayank Misra](http://mayankmisra.com/read-me/)....   
 
 ## Working on ##
-Getting this site up and running
-- Ramping up on python and R as pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
+
+- Ramping up on pPthon and R - pre reqs for [EDAV] (http://malecki.github.io/edav/agenda.html)
 - Trying to keep up with Machine Learning [assignments] (http://www1.ccls.columbia.edu/~ansaf/4721/assignements.html)
 - Pursuing data science chops at [Columbia University] (http://idse.columbia.edu/masters)
-- Have a day job as the Team Lead BI & Advanced Analytics for [Pfizer's] (http://www.pfizer.com/research/science_and_technology/product_pipeline) US BioPharma business
 - Gearing up for the [New York Triathlon] (http://www.nyctri.com/) and [Toughman Half Ironman] (http://www.toughmantri.com/)
 - Learning everyday on how to be a better dad to [Jaisal] (http://www.flickr.com/photos/overchai/3072745548/in/set-72157607041816594) 
+- Have a day job as the Team Lead BI & Advanced Analytics for [Pfizer's] (http://www.pfizer.com/research/science_and_technology/product_pipeline) US BioPharma business
 
 ## Speaking Engagements ##
 - Informatica World LV 2012, [Accelerating Cloud Adoption in the Enterprise]  (http://bit.ly/1aMasTz ) ~400 people in attendance
