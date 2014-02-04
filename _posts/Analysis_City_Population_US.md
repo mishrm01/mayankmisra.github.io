@@ -1,9 +1,7 @@
 ---
 layout: page
 title: City Population Trends
-category : edav
-tagline: "Supporting tagline"
-tags : [edav, data exploration, visualization, graphs]
+tagline: 
 ---
 {% include JB/setup %}
 
