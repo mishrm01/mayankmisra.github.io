@@ -4,7 +4,7 @@ title: who am i?
 tagline: 
 ---
 {% include JB/setup %}
- moi [Mayank Misra](http://mayankmisra.com/read-me/)....   
+# moi [Mayank Misra](http://mayankmisra.com/read-me/)....   
 
 ## Working on ##
 
@@ -34,6 +34,24 @@ tagline:
  This team oversees systems hosting over 350 business intelligence solutions catering to 85,000 users worldwide. We have 23 data management technologies under management - including Business Objects, Cognos, MicroStrategy, Sportfire, Tableau, Hyperion, SAS, DataStage, Informatica suite (MDM, IMM, IDE, IDQ, PC,DS) Composite, and Hadoop/Cloudera based big data analysis systems. 
 
  I have a MBA from Johnson & Wales University in Providence Rhode Island, a BS in Mathematics from India and various certifications in DWBI specific technologies. 
+ 
+##Example of what you will see here:
+ 
+ Data visualization starts with a discovery phase.  The intent is to get a sense of the data distrubtion, the various dimensions and the 'dirtiness' (missing data points, formating issues etc) of the data. 
+ 
+## Option 1
+[Trend Summary - Geo Hierarchy](http://public.tableausoftware.com/views/City_Population_Trend/TrendSummary-GeoHierarchy?:embed=y&:display_count=no)
+
+
+## Option 2
+[Population Size - Census Region/Division](http://public.tableausoftware.com/views/City_Population_Trend/PopulationSize-CensusRegionDivision?:embed=y&:display_count=no)
+
+
+## Option 3
+[Population Migration](http://public.tableausoftware.com/views/City_Population_Trend/PopulationMigration?:embed=y&:display_count=no)
+
+## Wrangled Data
+[Data](http://public.tableausoftware.com/views/City_Population_Trend/Data?:embed=y&:display_count=no)
 
 
 
