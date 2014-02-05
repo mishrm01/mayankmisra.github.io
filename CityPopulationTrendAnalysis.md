@@ -1,6 +1,6 @@
 ---
 layout: page
-title: City Population Trend Analysis
+title: CityPopulationTrendAnalysis
 tagline: 
 ---
 {% include JB/setup %}
