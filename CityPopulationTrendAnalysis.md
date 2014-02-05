@@ -1,7 +1,6 @@
 ---
 layout: page
 title: CityPopulationTrendAnalysis
-tagline: 
 ---
 {% include JB/setup %}
 
@@ -15,7 +14,3 @@ tagline:
 ## [Population Migration] (http://public.tableausoftware.com/views/City_Population_Trend/PopulationMigration?:embed=y&:display_count=no)
 
 ## [Data] (http://public.tableausoftware.com/views/City_Population_Trend/Data?:embed=y&:display_count=no)
-
-
-
-
