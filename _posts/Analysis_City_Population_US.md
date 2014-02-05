@@ -2,7 +2,6 @@
 layout: post
 title: CityPopulationTrendAnalysis
 ---
-{% include JB/setup %}
 
 
 ## [Trend Summary - Geo Hierarchy] (http://public.tableausoftware.com/views/City_Population_Trend/TrendSummary-GeoHierarchy?:embed=y&:display_count=no)
