@@ -465,6 +465,108 @@ print 'For a girl of age = 4.5, the prediction for height is %f' % (predict1)
 
 # <markdowncell>
 
+# ### Compare mean sqaured error of test set with training set
+
+# <codecell>
+
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1iu3Wke (based on Ex1 from Andrew Ng Coursera ml-class.org)
+# include numpy libraries to facilitate reading text files like csv
+import numpy as np
+from numpy import loadtxt, zeros, ones, array, linspace, logspace
+# include the matplot libraries
+import matplotlib as mpl
+# include plotting libraries
+import matplotlib.pyplot as plt
+from pylab import scatter, show, title, xlabel, ylabel, plot, contour
+
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_test.csv',
+                             dtype='float', 
+                             comments='# The file contains a null third row.  Force loadtxt to read first two columns', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             ) 
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
+
+    #Number of training samples
+    m = y.size
+ 
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta).flatten()
+ 
+    #calculate squared error
+    sqErrors = (predictedValue - y) ** 2
+    
+    J = (1.0 / (2 * m)) * sqErrors.sum()
+    
+    return J
+ 
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    # number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+ 
+        predictedValue = X.dot(beta).flatten()
+ 
+        sumErrorsCol1 = (predictedValue - y) * X[:, 0]
+        sumErrorsCol2 = (predictedValue - y) * X[:, 1]
+ 
+        beta[0][0] = beta[0][0] - alpha * (1.0 / m) * sumErrorsCol1.sum()
+        beta[1][0] = beta[1][0] - alpha * (1.0 / m) * sumErrorsCol2.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+X = data[:, 0]
+y = data[:, 1]
+ 
+ 
+#number of training samples
+m = y.size
+ 
+#Add a column of ones to X 
+X1 = ones(shape=(m, 2))
+X1[:, 1] = X
+ 
+#Initialize beta parameters
+beta = zeros(shape=(2, 1))
+ 
+#initialize gradient descent parameters
+numberIterations = 1500
+alpha = 0.05
+ 
+#compute and display initial cost
+print 'Initial cost is %f' % getCost(X1, y, beta)
+ 
+beta, J_history = gradientDescent(X1, y, beta, alpha, numberIterations)
+print beta
+
+# <markdowncell>
+
+# #### Initial cost for train set:  1.193600
+# #### Initial cost for test set:  1.232898
+# #### The beta values for train set:  -0.07334643 and 1.03658222
+# #### The beta values for test set:  -0.02288278 and 1.03139807
+
+# <markdowncell>
+
 # ## 2. Linear regression with multiple features
 
 # <markdowncell>
