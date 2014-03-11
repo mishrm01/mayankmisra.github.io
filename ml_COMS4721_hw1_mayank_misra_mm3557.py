@@ -125,6 +125,14 @@ getData()
 
 # <codecell>
 
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1iu3Wke (based on Ex1 from Andrew Ng Coursera ml-class.org)
 # include numpy libraries to facilitate reading text files like csv
 import numpy as np
 from numpy import loadtxt, zeros, ones, array, linspace, logspace
@@ -213,6 +221,14 @@ print beta
 
 # <codecell>
 
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1iu3Wke (based on Ex1 from Andrew Ng Coursera ml-class.org)
 # include numpy libraries to facilitate reading text files like csv
 import numpy as np
 from numpy import loadtxt, zeros, ones, array, linspace, logspace
@@ -308,6 +324,7 @@ def getData():
                              usecols=(0,1), 
                              unpack=True, 
                              ndmin=0)
+    #y = -0.02288278 + 1.03139807*x
     fig = plt.figure()
     axl = fig.add_subplot(1,1,1,axisbg='white')
     plt.plot(age, height, 'ro')
@@ -320,7 +337,7 @@ getData()
 
 #Plot the results
 result = X1.dot(beta).flatten()
-plot(data[:, 0], result)
+plot(data[:, 1], result)
 show()
  
 #plot values of beta
@@ -346,10 +363,22 @@ show()
 
 # <markdowncell>
 
+# [Contour Plot](https://pbs.twimg.com/media/BibJ88pIgAACG_k.png)
+
+# <markdowncell>
+
 # ### 1.4 Testing your model and Making a prediction for a new example
 
 # <codecell>
 
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1iu3Wke (based on Ex1 from Andrew Ng Coursera ml-class.org)
 # include numpy libraries to facilitate reading text files like csv
 import numpy as np
 from numpy import loadtxt, zeros, ones, array, linspace, logspace
@@ -425,11 +454,14 @@ beta = zeros(shape=(2, 1))
 numberIterations = 1500
 alpha = 0.05
 
+beta, J_history = gradientDescent(X1, y, beta, alpha, numberIterations)
+
 
 #Predict height for girl aged 4.5
 
 predict1 = array([4.5, 1]).dot(beta).flatten()
 print 'For a girl of age = 4.5, the prediction for height is %f' % (predict1)
+
 
 # <markdowncell>
 
