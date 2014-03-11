@@ -125,17 +125,17 @@ getData()
 
 # <codecell>
 
-import numpy as np
 # include numpy libraries to facilitate reading text files like csv
-import matplotlib as mpl
+import numpy as np
+from numpy import loadtxt, zeros, ones, array, linspace, logspace
 # include the matplot libraries
-import matplotlib.pyplot as plt
+import matplotlib as mpl
 # include plotting libraries
+import matplotlib.pyplot as plt
+from pylab import scatter, show, title, xlabel, ylabel, plot, contour
 
-# read the data
-def getData():
-    # specify the data file that will be read
-    x, y = np.loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_train.csv', 
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_train.csv',
                              dtype='float', 
                              comments='# The file contains a null third row.  Force loadtxt to read first two columns', 
                              delimiter=',', 
@@ -144,48 +144,68 @@ def getData():
                              usecols=(0,1), 
                              unpack=True, 
                              ndmin=0
-                             )
-    return x, y
+                             ) 
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
 
-#initialize descent parameters
-iteratNum = 1500
-alpha = 0.05
-
-#calculate Gradient Descent for 'n' examples with 'm' features and learning rate 'alpha' and iteration number 'iteatNum'
-# m and n don't need to be passed explicitly as numpy will calculate it itself
-
-def gradientDescent(x, y, beta, alpha, m, iteratNum):
-    xTranspose = x.transpose()
-    for i in range(0, iteratNum):
-        #hypothesis h = X * beta
-        hypothesis = np.dot(x, beta)
-        
-        #loss = hypothesis - y
-        loss = hypothesis - y
-        
-        #cost is the average cost per row, squared cost (loss^2)/2m where m is the number of examples
-        cost = np.sum(loss ** 2) / (2 * m)
-        
-        print("Iteration %d | Cost: %f" % (i, cost))
-        
-        # avg gradient per example where gradient = X' * loss / m
-        gradient = np.dot(xTranspose, loss) / m
-        
-        # update beta
-        beta = beta - (alpha * gradient)
+    #Number of training samples
+    m = y.size
+ 
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta).flatten()
+ 
+    #calculate squared error
+    sqErrors = (predictedValue - y) ** 2
     
-    return beta
-# initialize beta and iterate
-beta = np.ones(n)
-beta = gradientDescent(x, y, beta, alpha, m, iteratNum)
-print(beta)
+    J = (1.0 / (2 * m)) * sqErrors.sum()
+    
+    return J
+ 
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    # number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+ 
+        predictedValue = X.dot(beta).flatten()
+ 
+        sumErrorsCol1 = (predictedValue - y) * X[:, 0]
+        sumErrorsCol2 = (predictedValue - y) * X[:, 1]
+ 
+        beta[0][0] = beta[0][0] - alpha * (1.0 / m) * sumErrorsCol1.sum()
+        beta[1][0] = beta[1][0] - alpha * (1.0 / m) * sumErrorsCol2.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+X = data[:, 0]
+y = data[:, 1]
+ 
+ 
+#number of training samples
+m = y.size
+ 
+#Add a column of ones to X 
+X1 = ones(shape=(m, 2))
+X1[:, 1] = X
+ 
+#Initialize beta parameters
+beta = zeros(shape=(2, 1))
+ 
+#initialize gradient descent parameters
+numberIterations = 1500
+alpha = 0.05
+ 
+#compute and display initial cost
+print 'Initial cost is %f' % getCost(X1, y, beta)
+ 
+beta, J_history = gradientDescent(X1, y, beta, alpha, numberIterations)
+print beta
 
-
-# mean square error
-
-
-#Display GD result
-print "Theta computed from gradient descent:\n",beta
 
 # <markdowncell>
 
@@ -193,13 +213,90 @@ print "Theta computed from gradient descent:\n",beta
 
 # <codecell>
 
-import numpy as np
 # include numpy libraries to facilitate reading text files like csv
-import matplotlib as mpl
+import numpy as np
+from numpy import loadtxt, zeros, ones, array, linspace, logspace
 # include the matplot libraries
-import matplotlib.pyplot as plt
+import matplotlib as mpl
 # include plotting libraries
+import matplotlib.pyplot as plt
+from pylab import scatter, show, title, xlabel, ylabel, plot, contour
 
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_train.csv',
+                             dtype='float', 
+                             comments='# The file contains a null third row.  Force loadtxt to read first two columns', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             ) 
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
+
+    #Number of training samples
+    m = y.size
+ 
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta).flatten()
+ 
+    #calculate squared error
+    sqErrors = (predictedValue - y) ** 2
+    
+    J = (1.0 / (2 * m)) * sqErrors.sum()
+ 
+    return J
+ 
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    # number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+ 
+        predictedValue = X.dot(beta).flatten()
+ 
+        sumErrorsCol1 = (predictedValue - y) * X[:, 0]
+        sumErrorsCol2 = (predictedValue - y) * X[:, 1]
+ 
+        beta[0][0] = beta[0][0] - alpha * (1.0 / m) * sumErrorsCol1.sum()
+        beta[1][0] = beta[1][0] - alpha * (1.0 / m) * sumErrorsCol2.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+X = data[:, 0]
+y = data[:, 1]
+ 
+ 
+#number of training samples
+m = y.size
+ 
+#Add a column of ones to X 
+X1 = ones(shape=(m, 2))
+X1[:, 1] = X
+ 
+#Initialize beta parameters
+beta = zeros(shape=(2, 1))
+ 
+#initialize gradient descent parameters
+numberIterations = 1500
+alpha = 0.05
+ 
+#compute beta
+ 
+beta, J_history = gradientDescent(X1, y, beta, alpha, numberIterations)
+
+
+
+## PLOTS 
+
+#Plot the data
 def getData():
     # specify the data file that will be read
     age, height = np.loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_train.csv', 
@@ -211,12 +308,8 @@ def getData():
                              usecols=(0,1), 
                              unpack=True, 
                              ndmin=0)
-    #print (age)
-    #print (height)
-    
     fig = plt.figure()
     axl = fig.add_subplot(1,1,1,axisbg='white')
-    #add regression line plot once code resolves correctly
     plt.plot(age, height, 'ro')
     plt.title('Age and Stature')
     plt.xlabel('Age in Years')
@@ -225,29 +318,31 @@ def getData():
 
 getData()
 
-def gradientDescent(x, y, beta, alpha, m, iteratNum):
-    xTranspose = x.transpose()
-    for i in range(0, iteratNum):
-        #hypothesis h = X * beta
-        hypothesis = np.dot(x, beta)
-        
-        #loss = hypothesis - y
-        loss = hypothesis - y
-        
-        #cost is the average cost per row, squared cost (loss^2)/2m where m is the number of examples
-        cost = np.sum(loss ** 2) / (2 * m)
-        
-        # avg gradient per example where gradient = X' * loss / m
-        gradient = np.dot(xTranspose, loss) / m
-        
-        # update beta
-        beta = beta - (alpha * gradient)
-    
-    return beta
-# initialize beta and iterate
-beta = np.ones(n)
-beta = gradientDescent(x, y, beta, alpha, m, iteratNum)
-print(beta)
+#Plot the results
+result = X1.dot(beta).flatten()
+plot(data[:, 0], result)
+show()
+ 
+#plot values of beta
+#initialize matrix space for beta and cost values.  
+beta0 = linspace(-10, 10, 100)
+beta1 = linspace(-1, 4, 100)
+J_beta0beta1 = zeros(shape=(beta0.size, beta1.size))
+#Fill the matrix J_beta0beta1
+for t1, element in enumerate(beta0):
+    for t2, element2 in enumerate(beta1):
+        iBeta = zeros(shape=(2, 1))
+        iBeta[0][0] = element
+        iBeta[1][0] = element2
+        J_beta0beta1[t1, t2] = getCost(X1, y, iBeta)
+ 
+#graph a contour plot
+J_beta0beta1 = J_beta0beta1.T
+contour(beta0, beta1, J_beta0beta1, logspace(-2, 3, 20))
+xlabel('beta_0')
+ylabel('beta_1')
+scatter(beta[0][0], beta[1][0])
+show()
 
 # <markdowncell>
 
@@ -255,6 +350,86 @@ print(beta)
 
 # <codecell>
 
+# include numpy libraries to facilitate reading text files like csv
+import numpy as np
+from numpy import loadtxt, zeros, ones, array, linspace, logspace
+# include the matplot libraries
+import matplotlib as mpl
+# include plotting libraries
+import matplotlib.pyplot as plt
+from pylab import scatter, show, title, xlabel, ylabel, plot, contour
+
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_train.csv',
+                             dtype='float', 
+                             comments='# The file contains a null third row.  Force loadtxt to read first two columns', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             ) 
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
+
+    #Number of training samples
+    m = y.size
+ 
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta).flatten()
+ 
+    #calculate squared error
+    sqErrors = (predictedValue - y) ** 2
+    
+    J = (1.0 / (2 * m)) * sqErrors.sum()
+ 
+    return J
+ 
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    # number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+ 
+        predictedValue = X.dot(beta).flatten()
+ 
+        sumErrorsCol1 = (predictedValue - y) * X[:, 0]
+        sumErrorsCol2 = (predictedValue - y) * X[:, 1]
+ 
+        beta[0][0] = beta[0][0] - alpha * (1.0 / m) * sumErrorsCol1.sum()
+        beta[1][0] = beta[1][0] - alpha * (1.0 / m) * sumErrorsCol2.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+X = data[:, 0]
+y = data[:, 1]
+ 
+ 
+#number of training samples
+m = y.size
+ 
+#Add a column of ones to X 
+X1 = ones(shape=(m, 2))
+X1[:, 1] = X
+ 
+#Initialize beta parameters
+beta = zeros(shape=(2, 1))
+ 
+#initialize gradient descent parameters
+numberIterations = 1500
+alpha = 0.05
+
+
+#Predict height for girl aged 4.5
+
+predict1 = array([4.5, 1]).dot(beta).flatten()
+print 'For a girl of age = 4.5, the prediction for height is %f' % (predict1)
 
 # <markdowncell>
 
