@@ -576,6 +576,299 @@ print beta
 # <markdowncell>
 
 # #### 2.1 Data Preparation & Normalization
+# #### 2.2 Multi variable Gradient Descent on normalized data
+
+# <markdowncell>
+
+# #### Plot the data for exploration and size
+
+# <codecell>
+
+import numpy as np
+# include numpy libraries to facilitate reading text files like csv
+import matplotlib as mpl
+# include the matplot libraries
+import matplotlib.pyplot as plt
+# include plotting libraries
+
+def getData():
+    # specify the data file that will be read
+    age, weight, height = np.loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_age_weight_height_2_8.csv',
+                             dtype='float', 
+                             #comments='#', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             #usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             )
+    print (age)
+    print (weight)
+    print (height)
+    
+    fig = plt.figure()
+    ax = fig.gca(projection="3d")
+    plt.plot(age, weight, height, 'ro')
+    plt.title('Age Weight Height')
+    ax.set_xlabel('Age in Years')
+    ax.set_ylabel('Weight in Kilograms')
+    ax.set_zlabel('Height in Meters')
+    plt.show()
+
+getData()
+
+# <markdowncell>
+
+# #### Data Preparation, Normalization and Gradient Descent
+
+# <codecell>
+
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1fnpcVn (based on Andrew Ng Coursera ml-class.org)
+# include numpy libraries to facilitate reading text files like csv
+from numpy import loadtxt, zeros, ones, array, linspace, logspace, mean, std, arange
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from pylab import plot, show, xlabel, ylabel
+
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_age_weight_height_2_8.csv',
+                             dtype='float', 
+                             #comments='#', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             #usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             )
+                             
+#Normalize features- implies regress data so that mean is 0 and standard deviation is 1.  
+def normalizeFeatures(X):
+    normalizedStdDev = []
+    normalizedMean = []
+ 
+    normalizeX = X
+ 
+    rangeX = X.shape[1]
+    for i in range(rangeX):
+        getStdDev = std(X[:, i])
+        getMean = mean(X[:, i])
+        normalizedStdDev.append(getStdDev)
+        normalizedMean.append(getMean)
+        normalizeX[:, i] = (normalizeX[:, i] - getMean) / getStdDev
+ 
+    return normalizeX, normalizedMean, normalizedStdDev
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
+    #calculate training examples
+    m = y.size
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta)
+    #calculate squared error
+    sqErrors = (predictedValue - y)
+ 
+    J = (1.0 / (2 * m)) * sqErrors.T.dot(sqErrors)
+ 
+    return J
+
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha 
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    #number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+        predictedValue = X.dot(beta) 
+        betaSize = beta.size
+ 
+        for X1 in range(betaSize):
+ 
+            hold = X[:, X1]
+            hold.shape = (m, 1)
+            #calculate step errors
+            sumErrorsCol = (predictedValue - y) * hold
+            #calculate step beta values
+            beta[X1][0] = beta[X1][0] - alpha * (1.0 / m) * sumErrorsCol.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+#Initialize GD regression and print risk/cost
+X = data[:, :2]
+y = data[:, 2]
+ 
+#number of training samples
+m = y.size
+
+y.shape = (m, 1)
+ 
+#Normalize features- implies regress data so that mean is 0 and standard deviation is 1. 
+x, normalizedMean, normalizedStdDev = normalizeFeatures(X)
+ 
+#Add a column of ones to X
+X1 = ones(shape=(m, 3))
+X1[:, 1:3] = x
+ 
+#initialize gradient descent parameters
+iterations = 50
+alpha = 0.001
+ 
+#Initialize beta parameters
+beta = zeros(shape=(3, 1))
+ 
+beta, J_history = gradientDescent(X1, y, beta, alpha, iterations)
+print beta, J_history
+
+# <markdowncell>
+
+# #### 2.3 Plotting Risk function for different learning rates
+
+# <markdowncell>
+
+# #### Run gradient descent and plot the Risk function with respect to the number of iterations for different values of α ∈ {0.005, 0.001, 0.05, 0.1, 0.5, 1}
+
+# <codecell>
+
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1fnpcVn (based on Andrew Ng Coursera ml-class.org)
+# include numpy libraries to facilitate reading text files like csv
+from numpy import loadtxt, zeros, ones, array, linspace, logspace, mean, std, arange
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from pylab import plot, show, xlabel, ylabel
+
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_age_weight_height_2_8.csv',
+                             dtype='float', 
+                             #comments='#', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             #usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             )
+                             
+#Normalize features- implies regress data so that mean is 0 and standard deviation is 1.
+#For the each feature x (a column in the data matrix)xscaled = (x − μ(x))/(stdev(x))   
+def normalizeFeatures(X):
+    normalizedStdDev = []
+    normalizedMean = []
+ 
+    normalizeX = X
+ 
+    rangeX = X.shape[1]
+    for i in range(rangeX):
+        getStdDev = std(X[:, i])
+        getMean = mean(X[:, i])
+        normalizedStdDev.append(getStdDev)
+        normalizedMean.append(getMean)
+        normalizeX[:, i] = (normalizeX[:, i] - getMean) / getStdDev
+ 
+    return normalizeX, normalizedMean, normalizedStdDev
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
+    #calculate training examples
+    m = y.size
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta)
+    #calculate squared error
+    sqErrors = (predictedValue - y)
+ 
+    J = (1.0 / (2 * m)) * sqErrors.T.dot(sqErrors)
+ 
+    return J
+
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha 
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    #number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+        predictedValue = X.dot(beta) 
+        betaSize = beta.size
+ 
+        for X1 in range(betaSize):
+ 
+            hold = X[:, X1]
+            hold.shape = (m, 1)
+            #calculate step errors
+            sumErrorsCol = (predictedValue - y) * hold
+            #calculate step beta values
+            beta[X1][0] = beta[X1][0] - alpha * (1.0 / m) * sumErrorsCol.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+#Initialize regression and plot 
+X = data[:, :2]
+y = data[:, 2]
+ 
+#number of training samples
+m = y.size
+
+y.shape = (m, 1)
+ 
+#Normalize features- implies regress data so that mean is 0 and standard deviation is 1. 
+x, normalizedMean, normalizedStdDev = normalizeFeatures(X)
+ 
+#Add a column of ones to X
+X1 = ones(shape=(m, 3))
+X1[:, 1:3] = x
+ 
+#initialize gradient descent parameters
+iterations = 50
+alpha = 1
+ 
+#Initialize beta parameters
+beta = zeros(shape=(3, 1))
+ 
+beta, J_history = gradientDescent(X1, y, beta, alpha, iterations)
+print beta, J_history
+plot(arange(iterations), J_history)
+xlabel('Iterations')
+ylabel('Cost Function')
+show()
+
+# <markdowncell>
+
+# #### [The best convergence is for alpha = .05](https://pbs.twimg.com/media/Biefh9UCEAE3SWH.png)
+
+# <markdowncell>
+
+# #### 2.4 Normal equation  β = (XtX)−1XT y
+# ##### Compare the β vector you obtained with gradient descent to the one calculated with normal equation. Are they the same? Why?
+
+# <codecell>
+
+
+# <markdowncell>
+
+# #### 2.5 Prediction
+
+# <markdowncell>
+
+# ##### a) Using both β vectors (the one obtained with gradient descent and the one obtained with normal equations), make a height prediction for a 5-year old girl weighting 20 kilos (don’t forget to scale!).
+# ##### b) Do gradient descent and Normal Equation lead to the same height prediction?
 
 # <codecell>
 
