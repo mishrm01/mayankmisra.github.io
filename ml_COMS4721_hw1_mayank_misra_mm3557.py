@@ -75,8 +75,8 @@
 # <markdowncell>
 
 # ### 1.1 Load & Plot
-# #### a) Load the dataset girls.csv.
-# #### b) Plot the distribution of the data. You should be getting a plot similar to Figure 1.
+# #### Load the dataset girls.csv. and plot the distribution of the data. 
+# ####The plot of girls_train.csv looks like this:  [Age and Stature](https://pbs.twimg.com/media/BiUfDq5IgAEgENU.png)
 
 # <codecell>
 
@@ -119,9 +119,8 @@ getData()
 # <markdowncell>
 
 # ### 1.2 Gradient descent
-# #### Now that the data is loaded and you know how it looks like, find a regression model of the form: Height=β0 +β1 ×Age
-# #### a) Implement Gradient Descent to find the β’s of the model. Remember you need to add the vector 1 ahead of your data matrix. Also, make sure you update the parameters β’s simultaneously. Use a learning rate alpha = 0.05 and #iterations = 1500.
-# #### b) What is the mean square error of your regression model on the training set?
+# #### The β’s of the model with a learning rate alpha = 0.05 and #iterations = 1500.
+# #### The mean square error of your regression model on the training set?
 
 # <codecell>
 
@@ -218,6 +217,10 @@ print beta
 # <markdowncell>
 
 # ### 1.3 Plot the regression line, contours and bowl function
+
+# <markdowncell>
+
+# #### [Link to the resulting Contour Plot](https://pbs.twimg.com/media/BibJ88pIgAACG_k.png)
 
 # <codecell>
 
@@ -363,11 +366,15 @@ show()
 
 # <markdowncell>
 
-# [Contour Plot](https://pbs.twimg.com/media/BibJ88pIgAACG_k.png)
+# #### [Contour Plot](https://pbs.twimg.com/media/BibJ88pIgAACG_k.png)
 
 # <markdowncell>
 
 # ### 1.4 Testing your model and Making a prediction for a new example
+
+# <markdowncell>
+
+# #### For a girl of age = 4.5, the prediction for height is 0.928426
 
 # <codecell>
 
@@ -466,6 +473,13 @@ print 'For a girl of age = 4.5, the prediction for height is %f' % (predict1)
 # <markdowncell>
 
 # ### Compare mean sqaured error of test set with training set
+
+# <markdowncell>
+
+# #### Initial cost for train set:  1.193600
+# #### Initial cost for test set:  1.232898
+# #### The beta values for train set:  -0.07334643 and 1.03658222
+# #### The beta values for test set:  -0.02288278 and 1.03139807
 
 # <codecell>
 
@@ -581,6 +595,8 @@ print beta
 # <markdowncell>
 
 # #### Plot the data for exploration and size
+# 
+# #### [Link to the 3d distribution of data](https://github.com/mayankmisra/mayankmisra.github.io/blob/rel-0.2/assets/Age-Weight-Height-ExploreData.png?raw=true)
 
 # <codecell>
 
@@ -837,13 +853,13 @@ X1[:, 1:3] = x
  
 #initialize gradient descent parameters
 iterations = 50
-alpha = 1
+alpha = .05
  
 #Initialize beta parameters
 beta = zeros(shape=(3, 1))
  
 beta, J_history = gradientDescent(X1, y, beta, alpha, iterations)
-print beta, J_history
+#print beta, J_history
 plot(arange(iterations), J_history)
 xlabel('Iterations')
 ylabel('Cost Function')
@@ -851,7 +867,11 @@ show()
 
 # <markdowncell>
 
+# #### [alpha = .001](https://github.com/mayankmisra/mayankmisra.github.io/blob/rel-0.2/assets/Age-Weight-Height-alpha001.png?raw=true)
+# #### [alpha = .005](https://github.com/mayankmisra/mayankmisra.github.io/blob/rel-0.2/assets/Age-Weight-Height-alpha005.png?raw=true)
 # #### [The best convergence is for alpha = .05](https://pbs.twimg.com/media/Biefh9UCEAE3SWH.png)
+# #### [alpha = .5](https://github.com/mayankmisra/mayankmisra.github.io/blob/rel-0.2/assets/Age-Weight-Height-alphaDot5.png?raw=true)
+# #### [alpha = 1](https://github.com/mayankmisra/mayankmisra.github.io/blob/rel-0.2/assets/Age-Weight-Height-alpha1.png?raw=true)
 
 # <markdowncell>
 
@@ -869,6 +889,117 @@ show()
 
 # ##### a) Using both β vectors (the one obtained with gradient descent and the one obtained with normal equations), make a height prediction for a 5-year old girl weighting 20 kilos (don’t forget to scale!).
 # ##### b) Do gradient descent and Normal Equation lead to the same height prediction?
+
+# <codecell>
+
+#Summary
+#Load the dataset - csv with no headers
+#Initialize useful parameters for regression
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha
+#initialize gradient descent parameters
+#compute and display initial cost
+#Predict height for girl aged 4.5
+#code ported from http://bit.ly/1fnpcVn (based on Andrew Ng Coursera ml-class.org)
+# include numpy libraries to facilitate reading text files like csv
+from numpy import loadtxt, zeros, ones, array, linspace, logspace, mean, std, arange
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from pylab import plot, show, xlabel, ylabel
+
+#Load the dataset
+data = loadtxt('/Users/mayank/Dropbox/DataSets/ColumbiaUniversity/ML/hw1_all/girls_age_weight_height_2_8.csv',
+                             dtype='float', 
+                             #comments='#', 
+                             delimiter=',', 
+                             #converters=None, 
+                             #skiprows=0, 
+                             #usecols=(0,1), 
+                             unpack=True, 
+                             ndmin=0
+                             )
+                             
+#Normalize features- implies regress data so that mean is 0 and standard deviation is 1.
+#For the each feature x (a column in the data matrix)xscaled = (x − μ(x))/(stdev(x))   
+def normalizeFeatures(X):
+    normalizedStdDev = []
+    normalizedMean = []
+ 
+    normalizeX = X
+ 
+    rangeX = X.shape[1]
+    for i in range(rangeX):
+        getStdDev = std(X[:, i])
+        getMean = mean(X[:, i])
+        normalizedStdDev.append(getStdDev)
+        normalizedMean.append(getMean)
+        normalizeX[:, i] = (normalizeX[:, i] - getMean) / getStdDev
+ 
+    return normalizeX, normalizedMean, normalizedStdDev
+ 
+#Initialize useful parameters for regression 
+def getCost(X, y, beta):
+    #calculate training examples
+    m = y.size
+    #calculate the cost of a particular choice of beta
+    predictedValue = X.dot(beta)
+    #calculate squared error
+    sqErrors = (predictedValue - y)
+ 
+    J = (1.0 / (2 * m)) * sqErrors.T.dot(sqErrors)
+ 
+    return J
+
+#Compute gradient descent (GD) to infer beta. GD steps = numberIterations  and learning rate = alpha 
+def gradientDescent(X, y, beta, alpha, numberIterations):
+    #number of training examples
+    m = y.size
+    J_history = zeros(shape=(numberIterations, 1))
+ 
+    for i in range(numberIterations):
+        predictedValue = X.dot(beta) 
+        betaSize = beta.size
+ 
+        for X1 in range(betaSize):
+ 
+            hold = X[:, X1]
+            hold.shape = (m, 1)
+            #calculate step errors
+            sumErrorsCol = (predictedValue - y) * hold
+            #calculate step beta values
+            beta[X1][0] = beta[X1][0] - alpha * (1.0 / m) * sumErrorsCol.sum()
+ 
+        J_history[i, 0] = getCost(X, y, beta)
+ 
+    return beta, J_history
+ 
+#Initialize regression and plot 
+X = data[:, :2]
+y = data[:, 2]
+ 
+#number of training samples
+m = y.size
+
+y.shape = (m, 1)
+ 
+#Normalize features- implies regress data so that mean is 0 and standard deviation is 1. 
+x, normalizedMean, normalizedStdDev = normalizeFeatures(X)
+ 
+#Add a column of ones to X
+X1 = ones(shape=(m, 3))
+X1[:, 1:3] = x
+ 
+#initialize gradient descent parameters
+iterations = 50
+alpha = 0.05
+ 
+#Initialize beta parameters
+beta = zeros(shape=(3, 1))
+ 
+beta, J_history = gradientDescent(X1, y, beta, alpha, iterations)
+ 
+#Predict height for a 5 yr old girl weighing 20 kgs
+height = array([1.0,   ((5 - normalizedMean[0]) / normalizedStdDev[0]), ((20 - normalizedMean[1]) / normalizedStdDev[1])]).dot(beta)
+print 'Predicted height of a 5yr girl with weight 20kg: %f' % (height)
 
 # <codecell>
 
