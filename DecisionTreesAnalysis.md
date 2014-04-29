@@ -1,5 +1,12 @@
+---
+layout: page
+title: city population
+category : edav
+tagline: "Supporting tagline"
+tags : [edav, data exploration, visualization, graphs, lessons]
+---
 
-# Home Work n◦3: Decision Trees
+# Decision Trees
 
 ## Problem 1: Decision tree on the Titanic dataset
 
