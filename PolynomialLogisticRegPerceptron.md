@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PolynomialRegressionLogisticRegressionPerceptron
+title: PolynomialLogisticRegressionPerceptron
 category : Data Science
 tagline: "draft release"
 tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
