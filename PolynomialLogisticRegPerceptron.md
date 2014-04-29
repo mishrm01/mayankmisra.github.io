@@ -2,7 +2,7 @@
 layout: page
 title: PolynomialRegressionLogisticRegressionPerceptron
 category : Data Science
-tagline: "Supporting tagline"
+tagline: "draft release"
 tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
 ---
 # Polynomial Regression, Logistic Regression, and Perceptron
