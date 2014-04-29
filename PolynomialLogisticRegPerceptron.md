@@ -1,5 +1,11 @@
-
-# Home Work n◦2: Polynomial Regression, Logistic Regression, and Perceptron
+---
+layout: page
+title: PolynomialRegressionLogisticRegressionPerceptron
+category : Data Science
+tagline: "Supporting tagline"
+tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
+---
+# Polynomial Regression, Logistic Regression, and Perceptron
 
 ## Problem 1: Regression with polynomial fitting
 
