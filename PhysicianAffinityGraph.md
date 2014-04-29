@@ -1,4 +1,10 @@
-
+---
+layout: page
+title: Physician Affinity Graph
+category : Data Science
+tagline: "Supporting tagline"
+tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
+---
 # Physician Affinity Graph
 
 ## Summary
