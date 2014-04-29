@@ -1,9 +1,9 @@
 ---
 layout: page
-title: city population
-category : edav
+title: DecisionTreesAnalysis
+category : Data Science
 tagline: "Supporting tagline"
-tags : [edav, data exploration, visualization, graphs, lessons]
+tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
 ---
 
 # Decision Trees
