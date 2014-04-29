@@ -2,7 +2,7 @@
 layout: page
 title: Physician Affinity Graph
 category : Data Science
-tagline: "Supporting tagline"
+tagline: "draft release"
 tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
 ---
 # Physician Affinity Graph
