@@ -1,5 +1,12 @@
+---
+layout: page
+title: DecisionTreesAnalysis
+category : Data Science
+tagline: "draft release"
+tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
+---
 
-# Home Work n◦3: Decision Trees
+# Decision Trees
 
 ## Problem 1: Decision tree on the Titanic dataset
 

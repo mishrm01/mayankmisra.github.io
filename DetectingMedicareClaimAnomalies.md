@@ -1,4 +1,10 @@
-
+---
+layout: page
+title: DetectingMedicareClaimAnomalies
+category : Data Science
+tagline: "draft release"
+tags : [edav, data exploration, visualization, graphs, lessons, python, statistics]
+---
 # Detecting Medicare Claim Anomalies
 
 # Part 1 - Data Acquisition and Exploration
