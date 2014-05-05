@@ -1,9 +1,7 @@
 ---
 layout: page
 title: Physician Affinity Graph
-description: A network analysis of healthcare providers based on Medicare Claims data - Rajesh Madala, Mandeep Singh and Mayank Misra
 tagline: "draft release"
-tags: [edav, data exploration, visualization, graphs, lessons, python, statistics]
 ---
 
 # Physician Affinity Graph
