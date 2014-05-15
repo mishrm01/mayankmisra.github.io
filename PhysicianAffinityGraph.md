@@ -1,9 +1,3 @@
----
-layout: page
-title: Physician Affinity Graph
-tagline: 
----
-{% include JB/setup %}
 
 # Physician Affinity Graph
 
@@ -738,7 +732,7 @@ p + ggtitle("Physician Claims in TriState Area")
 
 
 
-    <matplotlib.collections.PathCollection at 0x10bb07810>
+    <matplotlib.collections.PathCollection at 0x1123c8cd0>
 
 
 
@@ -764,14 +758,14 @@ PAG_45_1.png)
     measure_performance(X_test,y_test,dt)
 
 
-    Decision Tree: 0.737710 
-    ('Accuracy:0.747', '\n')
+    Decision Tree: 0.747424 
+    ('Accuracy:0.751', '\n')
     Classification report
-    ('             precision    recall  f1-score   support\n\n          0       0.88      0.84      0.86      1006\n          1       0.07      0.07      0.07        72\n          2       0.14      0.20      0.16        89\n\navg / total       0.77      0.75      0.76      1167\n', '\n')
+    ('             precision    recall  f1-score   support\n\n          0       0.87      0.86      0.86       985\n          1       0.18      0.15      0.16        81\n          2       0.15      0.18      0.16       101\n\navg / total       0.76      0.75      0.75      1167\n', '\n')
     Confusion matrix
-    (array([[849,  54, 103],
-           [ 57,   5,  10],
-           [ 63,   8,  18]]), '\n')
+    (array([[846,  49,  90],
+           [ 55,  12,  14],
+           [ 76,   7,  18]]), '\n')
 
 
 
@@ -789,14 +783,14 @@ PAG_48_1.png)
     measure_performance(X_test,y_test,rf)
 
 
-    Random Forest: 0.782284 
-    ('Accuracy:0.771', '\n')
+    Random Forest: 0.793708 
+    ('Accuracy:0.801', '\n')
     Classification report
-    ('             precision    recall  f1-score   support\n\n          0       0.86      0.89      0.87      1006\n          1       0.00      0.00      0.00        72\n          2       0.07      0.07      0.07        89\n\navg / total       0.75      0.77      0.76      1167\n', '\n')
+    ('             precision    recall  f1-score   support\n\n          0       0.85      0.93      0.89       985\n          1       0.15      0.05      0.07        81\n          2       0.22      0.15      0.18       101\n\navg / total       0.75      0.80      0.77      1167\n', '\n')
     Confusion matrix
-    (array([[894,  40,  72],
-           [ 66,   0,   6],
-           [ 78,   5,   6]]), '\n')
+    (array([[916,  22,  47],
+           [ 70,   4,   7],
+           [ 86,   0,  15]]), '\n')
 
 
 
@@ -814,14 +808,14 @@ PAG_50_2.png)
     measure_performance(X_test,y_test,ab)
 
 
-    Ada Boost: 0.740571 
-    ('Accuracy:0.746', '\n')
+    Ada Boost: 0.747421 
+    ('Accuracy:0.750', '\n')
     Classification report
-    ('             precision    recall  f1-score   support\n\n          0       0.88      0.84      0.86      1006\n          1       0.07      0.07      0.07        72\n          2       0.14      0.20      0.16        89\n\navg / total       0.77      0.75      0.76      1167\n', '\n')
+    ('             precision    recall  f1-score   support\n\n          0       0.87      0.86      0.86       985\n          1       0.15      0.12      0.14        81\n          2       0.13      0.16      0.14       101\n\navg / total       0.75      0.75      0.75      1167\n', '\n')
     Confusion matrix
-    (array([[848,  55, 103],
-           [ 57,   5,  10],
-           [ 63,   8,  18]]), '\n')
+    (array([[849,  49,  87],
+           [ 53,  10,  18],
+           [ 77,   8,  16]]), '\n')
 
 
 
@@ -840,14 +834,14 @@ PAG_52_1.png)
     plot_classifier(X_train,y_train,X_test,y_test,knn)
 
 
-    KNN: 0.784568 
-    ('Accuracy:0.780', '\n')
+    KNN: 0.792562 
+    ('Accuracy:0.790', '\n')
     Classification report
-    ('             precision    recall  f1-score   support\n\n          0       0.86      0.89      0.88      1006\n          1       0.02      0.01      0.02        72\n          2       0.13      0.11      0.12        89\n\navg / total       0.75      0.78      0.77      1167\n', '\n')
+    ('             precision    recall  f1-score   support\n\n          0       0.85      0.93      0.88       985\n          1       0.07      0.02      0.04        81\n          2       0.13      0.08      0.10       101\n\navg / total       0.73      0.79      0.76      1167\n', '\n')
     Confusion matrix
-    (array([[899,  43,  64],
-           [ 68,   1,   3],
-           [ 75,   4,  10]]), '\n')
+    (array([[912,  26,  47],
+           [ 73,   2,   6],
+           [ 92,   1,   8]]), '\n')
 
 
 
@@ -865,18 +859,85 @@ PAG_54_1.png)
     measure_performance(X_test,y_test,sv)
 
 
-    SVM: 0.840579 
-    ('Accuracy:0.850', '\n')
+    SVM: 0.854284 
+    ('Accuracy:0.839', '\n')
     Classification report
-    ('             precision    recall  f1-score   support\n\n          0       0.86      0.99      0.92      1006\n          1       0.00      0.00      0.00        72\n          2       0.09      0.01      0.02        89\n\navg / total       0.75      0.85      0.79      1167\n', '\n')
+    ('             precision    recall  f1-score   support\n\n          0       0.85      0.99      0.91       985\n          1       0.00      0.00      0.00        81\n          2       0.10      0.01      0.02       101\n\navg / total       0.72      0.84      0.77      1167\n', '\n')
     Confusion matrix
-    (array([[991,   6,   9],
-           [ 71,   0,   1],
-           [ 86,   2,   1]]), '\n')
+    (array([[978,   0,   7],
+           [ 79,   0,   2],
+           [100,   0,   1]]), '\n')
 
 
 
     
+
+
+# Limitations and Assumptions
+
+### Data are dirty (.gov data are very dirty)
+
+Health and Humas Service itself acknowledge that [Improvements Are Needed To
+Ensure Provider Enumeration and Medicare Enrollment Data Are Accurate, Complete,
+and Consistent](http://oig.hhs.gov/oei/reports/oei-07-09-00440.asp)
+
+- Ideally we would have liked to use the [American Medical Association Physician
+Masterfile](http://www.ama-assn.org/ama/pub/about-ama/physician-data-resources
+/physician-masterfile.page).  This file has nationa level data on each
+physician, including demographic, education/training and practice information.
+The AMA website describes this file as including "current and historical data
+for more than 1.4 million physicians, residents, and medical students in the
+United States. This figure includes approximately 411,000 graduates of foreign
+medical schools who reside in the United States and who have met the educational
+and credentialing requirements necessary for recognition".  This is not a open
+dataset and not an option in absence of a budget.  Our choice was limted to the
+NPPES data or its derivations.  Although all practitioners and healthcare
+providers that participate in Medicare, Medicaid should have an NPI, the depth
+and completeness of data for physicians is not at par with the AMA master file.
+
+- This exercise is based on Medicare data and therfore may not provide a
+complete picture for the total population.
+
+#Stretch goal
+
+- If there is time, we would like to add population data for state/city for
+broaded analysis on Medicare claims and population features of a geography.
+- Use TIGER to plot Cencus data long/lat http://www.census.gov/geo/maps-
+data/data/tiger.html
+- This will enable future analysis on corelation between weather patterns,
+presence of public spaces (park and rec), numberof fast food stores, public
+transport, facilities for the elderly
+
+##Research:
+
+ - This can be linked to the summary data on procedures performed and billed by
+providers, as well as how much Medicare reimbursed
+
+The following questions have been posed by a Cloudera sponsored DataScience
+challenge.  We can aim to answer these and add more insights by including the
+NPI and Prescription info.  The challenge list the questions as:
+
+ - Some providers and regions tend to consistently billing too much for
+procedures or billing for too many procedures, perhaps inadvertently.
+ - Which procedures have the highest relative variance in cost?
+ - For each procedure, consider the average amount claimed by each provider.
+Some providers will have the highest average amount. Which three providers were
+the highest for the largest number of procedures?
+
+Some providers and regions are likely to be different in more subtle ways.
+
+- Based on amount and type of procedures claimed, which three providers and
+regions are least like the others?
+-  Can you briefly explain what seems to be different about these?
+- We have a lot of individual patient claim data. Our staff have identified
+several that look unusual -- they could be errors or fraud or simply unique
+patient contexts that are worth review.
+- Given this information, identify another 10,000 patients that seem most likely
+to need review.
+- Can you briefly describe some common features in these patients?
+
+More here:  http://www.cloudera.com/content/cloudera/en/training/certification
+/ccp-ds/challenge/register.html
 
 
     
