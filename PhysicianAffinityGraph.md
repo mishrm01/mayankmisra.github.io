@@ -573,7 +573,21 @@ p + ggtitle("Physician Claims in TriState Area")
 ## Applying Machine Learning to derive prediction models
 ========================================================================
 
-### Machine Learnign was done using Python and Scikit learn
+#### We are trying to predict whether the claim for a particular provider and
+drug is likely to fall in one of three buckets (low, medium and high). This will
+be useful for drug makers to get an idea which drugs are likely to be popular
+for a particular disease and geography.
+
+#### We used different Machine Learning algorithms on our labeled dataset to
+evaluate which one is the one accurate for predicting the labels in this case.
+
+####We used Scikit for applying the algorithms such as Decision Tree, Adaboost,
+Random Forest and SVM to our final labeled dataset and printed the accuracy and
+confusion matrix as the results.
+
+####We also ranked the features by their importance and did the final 2-D plots
+for our training and test data. In addition, we also clustered our dataset using
+a combination of PCA and k-means for unsupervised learning.
 
 
     import numpy as np
@@ -737,7 +751,7 @@ p + ggtitle("Physician Claims in TriState Area")
 
 
 
-![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_45_1.png)
+![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_48_1.png)
 
 
 ![PCA](https://dl.dropboxusercontent.com/u/10381353/EdavMLProject/ML-
@@ -769,7 +783,7 @@ PAG_45_1.png)
 
 
 
-![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_49_1.png)
+![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_52_1.png)
 
 
 ![DT](https://dl.dropboxusercontent.com/u/10381353/EdavMLProject/ML-
@@ -794,7 +808,7 @@ PAG_48_1.png)
 
 
 
-![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_52_1.png)
+![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_55_1.png)
 
 
 ![RF](https://dl.dropboxusercontent.com/u/10381353/EdavMLProject/ML-
@@ -819,7 +833,7 @@ PAG_50_2.png)
 
 
 
-![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_55_1.png)
+![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_58_1.png)
 
 
 ![ADB](https://dl.dropboxusercontent.com/u/10381353/EdavMLProject/ML-
@@ -845,7 +859,7 @@ PAG_52_1.png)
 
 
 
-![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_58_1.png)
+![png](PhysicianAffinityGraph_files/PhysicianAffinityGraph_61_1.png)
 
 
 ![KNN](https://dl.dropboxusercontent.com/u/10381353/EdavMLProject/ML-
