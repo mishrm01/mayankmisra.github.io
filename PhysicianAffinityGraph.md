@@ -1,3 +1,9 @@
+---
+layout: page
+title: Physician Affinity Graph
+tagline: 
+---
+{% include JB/setup %}
 
 # Physician Affinity Graph
 

@@ -3,7 +3,7 @@ layout: page
 title: who am i?
 tagline: 
 ---
-{% include JB/setup %}
+
 # moi [Mayank Misra](http://mayankmisra.com/read-me/)....   
 
 ## Working on ##
