@@ -3,9 +3,9 @@
 
 ## Summary
 This is an attempt to recreate and expand upon the work done by [Fred
-Trotter](www.fredtrotter.com) on a network graph of pysicians and orgainizations
-involved in providing health care services to Medicare patients.  The
-[DocGraph](www.docgraph.org) was first presented at the
+Trotter](http://www.fredtrotter.com) on a network graph of pysicians and
+orgainizations involved in providing health care services to Medicare patients.
+The [DocGraph](http://www.docgraph.org) was first presented at the
 [Strata](http://strata.oreilly.com/2012/11/docgraph-open-social-doctor-
 data.html) conference in 2012.  This initative applied network analysis on
 health care provider (HCP) relationships that are not formally curated within a
@@ -41,8 +41,8 @@ This effort is a part of the session end project submission requierments for
 [Exploratory Data Analysis](http://malecki.github.io/edav/) and [Machine
 Learning for Data Science](http://www1.ccls.columbia.edu/~ansaf/4721/index.html)
 courses in the Data Science program at Columbia University, New York.
-[Rajesh Madala](www.linkedin.com/pub/rajesh-madala/6/283/336), [Mandeep
-Sigh](www.linkedin.com/pub/mandeep-singh-cfa/2/236/214) and [Mayank
+[Rajesh Madala](https://www.linkedin.com/pub/rajesh-madala/6/283/336), [Mandeep
+Sigh](https://www.linkedin.com/pub/mandeep-singh-cfa/2/236/214) and [Mayank
 Misra](https://www.linkedin.com/in/mayankmisra) worked on this project.
 
 The scope was adjusted in April to focus on the New York, New Jersey,
@@ -533,7 +533,7 @@ p4 <- ggplot(agg4_top,aes(Labeler,Cqty,fill=Labeler))
 p4 + geom_bar(stat="identity") + ylab("Claim Quantity") + ggtitle("Claim Quantity by Top Labelers")
 ```
                 
-### Claim Amount by Top Labelers
+### Claim Quantity by Top Labelers
  ![Claim Sum by Top
 Labelers](https://dl.dropboxusercontent.com/u/10381353/EdavMLProject/unnamed-
 chunk-10.png "Claim Sum by Top Labelers")
